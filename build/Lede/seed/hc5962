@@ -69,11 +69,9 @@ CONFIG_PACKAGE_libcap-bin=y
 CONFIG_PACKAGE_libcap-bin-capsh-shell="/bin/sh"
 CONFIG_PACKAGE_libdaemon=y
 CONFIG_PACKAGE_libdbus=y
-# CONFIG_PACKAGE_libev is not set
 CONFIG_PACKAGE_libexpat=y
 CONFIG_PACKAGE_libgmp=y
 CONFIG_PACKAGE_libgnutls=y
-# CONFIG_PACKAGE_libmbedtls is not set
 CONFIG_PACKAGE_libminiupnpc=y
 CONFIG_PACKAGE_libnatpmp=y
 CONFIG_PACKAGE_libncurses=y
@@ -81,11 +79,8 @@ CONFIG_PACKAGE_libnettle=y
 CONFIG_PACKAGE_libpopt=y
 CONFIG_PACKAGE_libreadline=y
 CONFIG_PACKAGE_libruby=y
-# CONFIG_PACKAGE_libsodium is not set
-CONFIG_PACKAGE_libstdcpp=y
 CONFIG_PACKAGE_libtasn1=y
 CONFIG_PACKAGE_libtirpc=y
-# CONFIG_PACKAGE_libudns is not set
 CONFIG_PACKAGE_liburing=y
 CONFIG_PACKAGE_libyaml=y
 # CONFIG_PACKAGE_lua-neturl is not set
@@ -137,12 +132,7 @@ CONFIG_PACKAGE_ruby-psych=y
 CONFIG_PACKAGE_ruby-stringio=y
 CONFIG_PACKAGE_ruby-strscan=y
 CONFIG_PACKAGE_ruby-yaml=y
-# CONFIG_PACKAGE_shadowsocks-libev-ss-local is not set
-# CONFIG_PACKAGE_shadowsocks-libev-ss-redir is not set
 # CONFIG_PACKAGE_shadowsocksr-libev-ssr-check is not set
-# CONFIG_PACKAGE_shadowsocksr-libev-ssr-local is not set
-# CONFIG_PACKAGE_shadowsocksr-libev-ssr-redir is not set
-# CONFIG_PACKAGE_simple-obfs is not set
 # CONFIG_PACKAGE_tcping is not set
 CONFIG_PACKAGE_terminfo=y
 CONFIG_PACKAGE_unzip=y
