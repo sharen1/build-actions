@@ -69,7 +69,7 @@ export Cancel_running="0"                    # 取消路由器每天跑分任务
 export amlogic_model="s912-phicomm-t1"
 export amlogic_kernel="5.10.01_6.1.01"
 export auto_kernel="true"
-export rootfs_size="1240"
+export rootfs_size="1020"
 export kernel_usage="stable"
 
 # Fix xfsprogs build error
