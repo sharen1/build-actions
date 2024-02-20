@@ -23,7 +23,7 @@ on:
       CONFIG_FILE:
         description: '请选择配置文件'
         required: true
-        default: 'hc5962'
+        default: 'phicomm_t1'
         type: choice
         options:
           - 'aarch64'
