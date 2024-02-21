@@ -64,6 +64,40 @@ export Delete_unnecessary_items="0"          # 个别机型内一堆其他机型
 export Disable_53_redirection="0"            # 删除DNS强制重定向53端口防火墙规则(个别源码本身不带此功能)(1为启用命令,填0为不作修改)
 export Cancel_running="0"                    # 取消路由器每天跑分任务(个别源码本身不带此功能)(1为启用命令,填0为不作修改)
 
+rm -rf feeds/luci/applications/luci-app-netdata
+rm -rf feeds/danshui1/luci-app-netdata
+git clone https://github.com/sirpdboy/luci-app-netdata package/luci-app-netdata
+rm -rf feeds/luci/applications/luci-app-gowebdav
+rm -rf feeds/danshui1/luci-app-gowebdav
+rm -rf feeds/danshui1/relevance/gowebdav
+#svn co https://github.com/sbwml/openwrt_pkgs/trunk/luci-app-gowebdav package/luci-app-gowebdav
+#svn co https://github.com/sbwml/openwrt_pkgs/trunk/gowebdav package/gowebdav
+#git clone https://github.com/vernesong/OpenClash.git -b master --single-branch luci-app-openclash
+function merge_package() {
+        # 参数1是分支名,参数2是库地址,参数3是所有文件下载到指定路径。
+        # 同一个仓库下载多个文件夹直接在后面跟文件名或路径，空格分开。
+        if [[ $# -lt 3 ]]; then
+        echo "Syntax error: [$#] [$*]" >&2
+        return 1
+        fi
+        trap 'rm -rf "$tmpdir"' EXIT
+        branch="$1" curl="$2" target_dir="$3" && shift 3
+        rootdir="$PWD"
+        localdir="$target_dir"
+        [ -d "$localdir" ] || mkdir -p "$localdir"
+        tmpdir="$(mktemp -d)" || exit 1
+        git clone -b "$branch" --depth 1 --filter=blob:none --sparse "$curl" "$tmpdir"
+        cd "$tmpdir"
+        git sparse-checkout init --cone
+        git sparse-checkout set "$@"
+        # 使用循环逐个移动文件夹
+        for folder in "$@"; do
+        mv -f "$folder" "$rootdir/$localdir"
+        done
+        cd "$rootdir"
+        }
+        merge_package master https://github.com/sbwml/openwrt_pkgs package/openwrt-packages gowebdav luci-app-gowebdav
+
 
 # 晶晨CPU系列打包固件设置(不懂请看说明)
 export amlogic_model="s912-phicomm-t1"
