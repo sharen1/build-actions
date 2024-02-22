@@ -105,7 +105,12 @@ export amlogic_kernel="5.10.01_6.1.01"
 export auto_kernel="true"
 export rootfs_size="1024"
 export kernel_usage="stable"
-
+#
+# Add luci-app-amlogic
+rm -rf package/luci-app-amlogic
+rm -rf feeds/danshui1/luci-app-amlogic
+git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
+#
 # Fix xfsprogs build error
 sed -i 's|TARGET_CFLAGS += -DHAVE_MAP_SYNC.*|TARGET_CFLAGS += -DHAVE_MAP_SYNC $(if $(CONFIG_USE_MUSL),-D_LARGEFILE64_SOURCE)|' feeds/packages/utils/xfsprogs/Makefile
 
