@@ -98,6 +98,9 @@ function merge_package() {
         }
         merge_package master https://github.com/sbwml/openwrt_pkgs package/openwrt-packages gowebdav luci-app-gowebdav
 
+# Fix xfsprogs build error
+sed -i 's|TARGET_CFLAGS += -DHAVE_MAP_SYNC.*|TARGET_CFLAGS += -DHAVE_MAP_SYNC $(if $(CONFIG_USE_MUSL),-D_LARGEFILE64_SOURCE)|' feeds/packages/utils/xfsprogs/Makefile
+
 # 晶晨CPU系列打包固件设置(不懂请看说明)
 export amlogic_model="s912-phicomm-t1"
 export amlogic_kernel="5.10.01_6.1.01"
